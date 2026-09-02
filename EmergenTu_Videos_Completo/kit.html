@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+
+  <meta charset="UTF-8">
+  <title>Kit de Primeros Auxilios</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .contenido {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .contenido h2 {
+      margin-top: 20px;
+      color: #c62828;
+    }
+    .kit-section {
+      background-color: #f8f8f8;
+      border-left: 10px solid #c62828;
+      padding: 20px;
+      margin-top: 25px;
+      border-radius: 10px;
+    }
+    .kit-section.bajo { border-left-color: #4caf50; }
+    .kit-section.medio { border-left-color: #ff9800; }
+    .kit-section.alto { border-left-color: #f44336; }
+    .kit-section ul {
+      padding-left: 20px;
+    }
+    .kit-section ul li {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de navegación -->
+  <div class="navbar">
+    <button onclick="history.back()"><i class="fa-solid fa-arrow-left"></i></button>
+    <h1>Kits de Primeros Auxilios</h1>
+    <a href="index.html"><i class="fa-solid fa-house"></i></a>
+  </div>
+
+  <!-- Contenido -->
+  <div class="contenido">
+
+    <h2>¿Qué debe tener un kit de primeros auxilios?</h2>
+    <p>
+      Tener un botiquín bien preparado puede marcar la diferencia en una emergencia. Aquí te mostramos qué debe tener uno básico, intermedio y avanzado.
+    </p>
+
+    <div class="kit-section bajo">
+      <h3>🟢 Kit Básico</h3>
+      <ul>
+        <li>Gasas estériles</li>
+        <li>Vendajes</li>
+        <li>Tijeras pequeñas</li>
+        <li>Cinta adhesiva</li>
+        <li>Guantes desechables</li>
+        <li>Alcohol al 70%</li>
+        <li>Agua oxigenada</li>
+        <li>Termómetro</li>
+        <li>Mascarillas</li>
+      </ul>
+    </div>
+
+    <div class="kit-section medio">
+      <h3>🟠 Kit Intermedio</h3>
+      <ul>
+        <li>Todo lo del kit básico</li>
+        <li>Suero fisiológico</li>
+        <li>Paracetamol o ibuprofeno</li>
+        <li>Antisépticos en gel</li>
+        <li>Pinzas</li>
+        <li>Bolsa de frío instantáneo</li>
+        <li>Manual de primeros auxilios</li>
+        <li>Manta térmica</li>
+      </ul>
+    </div>
+
+    <div class="kit-section alto">
+      <h3>🔴 Kit Avanzado</h3>
+      <ul>
+        <li>Todo lo del kit intermedio</li>
+        <li>Mascarilla de RCP</li>
+        <li>Inmovilizadores (férulas)</li>
+        <li>Tensiómetro y oxímetro</li>
+        <li>Medicamentos prescritos para emergencias (si aplica)</li>
+        <li>Linterna y pilas</li>
+        <li>Registro médico de los integrantes del hogar</li>
+      </ul>
+    </div>
+
+  </div>
+
+</body>
+</html>

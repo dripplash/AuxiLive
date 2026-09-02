@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+
+  <meta charset="UTF-8">
+  <title>Quemaduras</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    .contenido {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    .contenido h2 {
+      color: #c62828;
+      margin-top: 25px;
+    }
+    .contenido p, .contenido li {
+      font-size: 17px;
+      line-height: 1.6;
+    }
+    iframe {
+      border-radius: 12px;
+      margin-top: 20px;
+      width: 100%;
+      height: 315px;
+    }
+    .completado-container {
+      margin-top: 50px;
+      background-color: #c62828;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+    }
+    .completado-container button {
+      background-color: white;
+      color: #c62828;
+      border: none;
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="navbar">
+    <button onclick="history.back()"><i class="fa-solid fa-arrow-left"></i></button>
+    <h1>Quemaduras</h1>
+    <a href="index.html"><i class="fa-solid fa-house"></i></a>
+  </div>
+
+  <div class="contenido">
+
+    <h2>¿Qué son las quemaduras?</h2>
+    <p>Las quemaduras son lesiones en la piel causadas por calor, electricidad, productos químicos o radiación. Es importante actuar rápidamente para minimizar el daño.</p>
+
+    <h2>Tipos de quemaduras</h2>
+    <ul>
+      <li><strong>Primer grado:</strong> afecta solo la capa externa de la piel (enrojecimiento y dolor).</li>
+      <li><strong>Segundo grado:</strong> daña capas más profundas, con ampollas y dolor intenso.</li>
+      <li><strong>Tercer grado:</strong> destruye todas las capas de la piel, puede no haber dolor por daño nervioso.</li>
+    </ul>
+
+    <h2>¿Cómo actuar ante una quemadura?</h2>
+    <ol>
+      <li>Enfriar el área con agua a temperatura ambiente durante al menos 10 minutos.</li>
+      <li>No usar hielo ni cremas caseras.</li>
+      <li>Proteger con un paño limpio y seco.</li>
+      <li>Buscar atención médica si la quemadura es extensa, profunda o en zonas sensibles.</li>
+    </ol>
+
+    <h2>Video explicativo:</h2>
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+      <iframe src="https://www.youtube.com/embed/cECkv6xUuTY" 
+              title="Cómo tratar una quemadura - Primeros Auxilios" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen
+              style="position:absolute;top:0;left:0;width:100%;height:100%;">
+      </iframe>
+    </div>
+    <p>Este video te enseña cómo tratar correctamente las quemaduras en casa y cuándo acudir a urgencias.</p>
+
+    <!-- Bloque al final con botón de completado -->
+    <div class="completado-container">
+      ¿Terminaste esta sección?
+      <br>
+      <button onclick="marcarComoCompletado('quemaduras')">✅ Marcar como completado</button>
+    </div>
+
+  </div>
+
+  <script>
+    function marcarComoCompletado(nombre) {
+      localStorage.setItem(nombre + '_completado', 'true');
+      alert('¡Sección "' + nombre + '" marcada como completada!');
+    }
+  </script>
+
+</body>
+</html>

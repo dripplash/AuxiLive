@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+
+  <meta charset="UTF-8">
+  <title>Maniobra de Heimlich</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .contenido {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    .contenido h2 {
+      color: #c62828;
+      margin-top: 25px;
+    }
+    .contenido p, .contenido li {
+      font-size: 17px;
+      line-height: 1.6;
+    }
+    iframe {
+      border-radius: 12px;
+      margin-top: 20px;
+      width: 100%;
+      height: 315px;
+    }
+    .boton-completado {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .boton-completado button {
+      background-color: #c62828;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <button onclick="history.back()"><i class="fa-solid fa-arrow-left"></i></button>
+    <h1>Maniobra de Heimlich</h1>
+    <a href="index.html"><i class="fa-solid fa-house"></i></a>
+  </div>
+
+  <div class="contenido">
+
+    <h2>¿Qué es?</h2>
+    <p>
+      Es una técnica para desobstruir las vías respiratorias cuando alguien se está atragantando con comida u objetos.
+    </p>
+
+    <h2>¿Cómo realizarla?</h2>
+    <ol>
+      <li>Ubícate detrás de la persona, rodea su cintura con ambos brazos.</li>
+      <li>Coloca un puño cerrado entre el ombligo y el esternón.</li>
+      <li>Con la otra mano, aplica compresiones rápidas hacia adentro y arriba.</li>
+      <li>Repite hasta que expulse el objeto o pierda el conocimiento (en ese caso, inicia RCP).</li>
+    </ol>
+
+    <h2>Video explicativo:</h2>
+    <iframe src="https://www.youtube.com/embed/HDsBQJhIRZc" 
+            title="Maniobra de Heimlich - Cómo actuar en caso de atragantamiento"
+            allowfullscreen></iframe>
+
+    <p>
+      Este video enseña cómo aplicar correctamente la maniobra de Heimlich para salvar a alguien que está atragantado. Una acción rápida puede desbloquear las vías respiratorias y salvar una vida.
+    </p>
+
+    <h2>¿Por qué es vital?</h2>
+    <p>
+      Un atragantamiento puede cortar el flujo de aire completamente. La maniobra puede salvar vidas en segundos.
+    </p>
+
+    <!-- Botón al final -->
+    <div class="boton-completado">
+      <button onclick="marcarComoCompletado('heimlich')">✅ Marcar como completado</button>
+    </div>
+
+  </div>
+
+  <script>
+    function marcarComoCompletado(nombre) {
+      localStorage.setItem(nombre + '_completado', 'true');
+      alert('¡Sección "' + nombre + '" marcada como completada!');
+    }
+  </script>
+
+</body>
+</html>

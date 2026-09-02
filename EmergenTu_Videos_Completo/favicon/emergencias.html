@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+
+  <meta charset="UTF-8">
+  <title>Emergencias Cercanas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .contenido {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .btn-emergencia {
+      display: inline-block;
+      margin: 15px;
+      padding: 15px 25px;
+      font-size: 18px;
+      border-radius: 10px;
+      background-color: #c62828;
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn-emergencia:hover {
+      background-color: #a91d1d;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de navegación -->
+  <div class="navbar">
+    <button onclick="history.back()"><i class="fa-solid fa-arrow-left"></i></button>
+    <h1>Emergencias y Hospitales Cercanos</h1>
+    <a href="index.html"><i class="fa-solid fa-house"></i></a>
+  </div>
+
+  <div class="contenido">
+
+    <h2>¿Necesitas ayuda urgente?</h2>
+    <p>Usa los botones para llamar directamente a los servicios de emergencia en Chile:</p>
+
+    <a class="btn-emergencia" href="tel:131"><i class="fas fa-ambulance"></i> Ambulancia (131)</a>
+    <a class="btn-emergencia" href="tel:132"><i class="fas fa-fire-extinguisher"></i> Bomberos (132)</a>
+    <a class="btn-emergencia" href="tel:133"><i class="fas fa-user-shield"></i> Carabineros (133)</a>
+
+    <h2 style="margin-top: 40px;">Hospitales cercanos</h2>
+    <p>Haz clic en el siguiente botón para ver hospitales cercanos en Google Maps según tu ubicación:</p>
+
+    <a id="linkMapa" class="btn-emergencia" target="_blank">
+      <i class="fas fa-map-marked-alt"></i> Ver hospitales cercanos
+    </a>
+
+  </div>
+
+  <script>
+    const linkMapa = document.getElementById("linkMapa");
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const lat = pos.coords.latitude;
+          const lon = pos.coords.longitude;
+          linkMapa.href = `https://www.google.com/maps/search/hospitales/@${lat},${lon},14z`;
+        },
+        (err) => {
+          console.warn("No se pudo obtener la ubicación, se usará mapa general.");
+          linkMapa.href = "https://www.google.com/maps/search/hospitales+cercanos/";
+        }
+      );
+    } else {
+      linkMapa.href = "https://www.google.com/maps/search/hospitales+cercanos/";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+
+  <meta charset="UTF-8">
+  <title>Guía de Primeros Auxilios</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="guia">
+
+  <!-- Barra superior de navegación -->
+  <div class="navbar">
+    <button onclick="history.back()"><i class="fa-solid fa-arrow-left"></i></button>
+    <h1>Guía de Primeros Auxilios</h1>
+    <a href="index.html"><i class="fa-solid fa-house"></i></a>
+  </div>
+
+  <!-- Barra de búsqueda -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Buscar emergencia..." onkeyup="filtrarCartas()">
+  </div>
+
+  <!-- Tarjetas de temas -->
+  <div class="container" id="cardContainer">
+    <div class="card" onclick="location.href='rcp.html'">
+      <h2>RCP</h2>
+      <p>Reanimación cardiopulmonar</p>
+    </div>
+
+    <div class="card" onclick="location.href='desmayos.html'">
+      <h2>Desmayos</h2>
+      <p>Qué hacer cuando alguien pierde el conocimiento.</p>
+    </div>
+     
+    <div class="card" onclick="location.href='quemaduras.html'">
+      <h2>Quemaduras</h2>
+      <p>Primeros auxilios ante quemaduras</p>
+    </div>
+    <div class="card" onclick="location.href='fracturas.html'">
+      <h2>Fracturas</h2>
+      <p>Qué hacer ante una fractura</p>
+    </div>
+    <div class="card" onclick="location.href='heimlich.html'">
+      <h2>Maniobra de Heimlich</h2>
+      <p>Cómo actuar ante asfixia</p>
+    </div>
+    <div class="card" onclick="location.href='hemorragias.html'">
+      <h2>Hemorragias</h2>
+      <p>Cómo detener una hemorragia</p>
+    </div>
+    <div class="card" onclick="location.href='alergias.html'">
+      <h2>Alergias</h2>
+      <p>Reacción alérgica y cómo actuar</p>
+    </div>
+  </div>
+
+  <!-- Script de búsqueda -->
+  <script>
+    function filtrarCartas() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+        const texto = card.innerText.toLowerCase();
+        card.style.display = texto.includes(input) ? "flex" : "none";
+      });
+    }
+  </script>
+
+</body>
+</html>

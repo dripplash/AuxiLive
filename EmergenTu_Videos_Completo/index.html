@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>AuxiLife</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Selector de idioma -->
+  <div class="language-switcher">
+    <label for="lang">Idioma:</label>
+    <select id="lang" onchange="cambiarIdioma()">
+      <option value="es">Español</option>
+      <option value="en">English</option>
+    </select>
+  </div>
+
+  <!-- Título -->
+  <h1 id="titulo">App de Primeros Auxilios - AuxiLive</h1>
+
+  <!-- Buscador -->
+  <div class="search-container">
+    <input type="text" id="searchInicio" placeholder="Buscar sección..." onkeyup="buscarSeccion()">
+  </div>
+
+  <!-- Tarjetas -->
+  <div class="container">
+    <div class="card" onclick="location.href='guia.html'">
+      <h2 id="guia-titulo">Guía Básica</h2>
+      <p id="guia-desc">Aprende cómo actuar ante emergencias como RCP, quemaduras, fracturas, asfixia y más.</p>
+    </div>
+    
+    <div class="card" onclick="location.href='kit.html'">
+      <h2 id="kit-titulo">Kit de Primeros Auxilios</h2>
+      <p id="kit-desc">Descubre qué debe contener un botiquín básico, intermedio o avanzado.</p>
+    </div>
+
+    <div class="card" onclick="location.href='emergencias.html'">
+      <h2 id="emer-titulo">Emergencias Cercanas</h2>
+      <p id="emer-desc">Encuentra hospitales cercanos y llama a servicios de emergencia en Chile.</p>
+    </div>
+
+    <div class="card" onclick="location.href='progreso.html'">
+      <h2 id="prog-titulo">Mi Progreso</h2>
+      <p id="prog-desc">Revisa tu avance, logros obtenidos y descarga tu certificado. Agenda capacitaciones en tu comunidad.</p>
+    </div>
+
+    <div class="card" onclick="location.href='asistente.html'">
+      <h2 id="asist-titulo">Asistente GPT</h2>
+      <p id="asist-desc">Haz preguntas sobre primeros auxilios y obtén respuestas automáticas al instante.</p>
+    </div>
+
+    <div class="card" onclick="location.href='idioma.html'">
+      <h2 id="idioma-titulo">Idioma</h2>
+      <p id="idioma-desc">Elige el idioma que prefieras para navegar por la aplicación.</p>
+    </div>
+
+    <div class="card" onclick="location.href='agradecimientos.html'">
+      <h2 id="agrade-titulo">Agradecimientos</h2>
+      <p id="agrade-desc">Gracias por visitar AuxiLive. Esperamos que esta app te sea útil.</p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    const traducciones = {
+      es: {
+        titulo: "App de Primeros Auxilios - AuxiLive",
+        guiaTitulo: "Guía Básica",
+        guiaDesc: "Aprende cómo actuar ante emergencias como RCP, quemaduras, fracturas, asfixia y más.",
+        kitTitulo: "Kit de Primeros Auxilios",
+        kitDesc: "Descubre qué debe contener un botiquín básico, intermedio o avanzado.",
+        emerTitulo: "Emergencias Cercanas",
+        emerDesc: "Encuentra hospitales cercanos y llama a servicios de emergencia en Chile.",
+        progTitulo: "Mi Progreso",
+        progDesc: "Revisa tu avance, logros obtenidos y descarga tu certificado. Agenda capacitaciones en tu comunidad.",
+        asistTitulo: "Asistente GPT",
+        asistDesc: "Haz preguntas sobre primeros auxilios y obtén respuestas automáticas al instante.",
+        idiomaTitulo: "Idioma",
+        idiomaDesc: "Elige el idioma que prefieras para navegar por la aplicación.",
+        agradeTitulo: "Agradecimientos",
+        agradeDesc: "Gracias por visitar AuxiLive. Esperamos que esta app te sea útil."
+      },
+      en: {
+        titulo: "First Aid App - AuxiLive",
+        guiaTitulo: "Basic Guide",
+        guiaDesc: "Learn how to act in emergencies such as CPR, burns, fractures, choking and more.",
+        kitTitulo: "First Aid Kit",
+        kitDesc: "Discover what a basic, intermediate or advanced kit should contain.",
+        emerTitulo: "Nearby Emergencies",
+        emerDesc: "Find nearby hospitals and call emergency services in Chile.",
+        progTitulo: "My Progress",
+        progDesc: "Check your progress, achievements earned and download your certificate. Schedule training in your community.",
+        asistTitulo: "GPT Assistant",
+        asistDesc: "Ask questions about first aid and get instant automatic answers.",
+        idiomaTitulo: "Language",
+        idiomaDesc: "Choose the language you prefer to browse the application.",
+        agradeTitulo: "Acknowledgements",
+        agradeDesc: "Thank you for visiting AuxiLive. We hope this app is useful to you."
+      }
+    };
+
+    function cambiarIdioma() {
+      const lang = document.getElementById("lang").value;
+      const t = traducciones[lang];
+
+      document.getElementById("titulo").innerText = t.titulo;
+      document.getElementById("guia-titulo").innerText = t.guiaTitulo;
+      document.getElementById("guia-desc").innerText = t.guiaDesc;
+      document.getElementById("kit-titulo").innerText = t.kitTitulo;
+      document.getElementById("kit-desc").innerText = t.kitDesc;
+      document.getElementById("emer-titulo").innerText = t.emerTitulo;
+      document.getElementById("emer-desc").innerText = t.emerDesc;
+      document.getElementById("prog-titulo").innerText = t.progTitulo;
+      document.getElementById("prog-desc").innerText = t.progDesc;
+      document.getElementById("asist-titulo").innerText = t.asistTitulo;
+      document.getElementById("asist-desc").innerText = t.asistDesc;
+      document.getElementById("idioma-titulo").innerText = t.idiomaTitulo;
+      document.getElementById("idioma-desc").innerText = t.idiomaDesc;
+      document.getElementById("agrade-titulo").innerText = t.agradeTitulo;
+      document.getElementById("agrade-desc").innerText = t.agradeDesc;
+    }
+
+    function buscarSeccion() {
+      const input = document.getElementById("searchInicio").value.toLowerCase();
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+        const texto = card.innerText.toLowerCase();
+        card.style.display = texto.includes(input) ? "flex" : "none";
+      });
+    }
+  </script>
+
+</body>
+</html>

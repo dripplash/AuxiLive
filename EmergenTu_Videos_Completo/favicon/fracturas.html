@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+
+  <meta charset="UTF-8">
+  <title>Fracturas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .contenido { max-width: 900px; margin: auto; padding: 30px; background-color: rgba(255,255,255,0.95); border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: left; }
+    .contenido h2 { color: #c62828; margin-top: 25px; }
+    .contenido p, .contenido li { font-size: 17px; line-height: 1.6; }
+    iframe { border-radius: 12px; margin-top: 20px; width: 100%; height: 315px; }
+    .completado-container { margin-top: 50px; background-color: #c62828; padding: 25px; border-radius: 10px; text-align: center; color: white; font-weight: bold; }
+    .completado-container button { background-color: white; color: #c62828; border: none; padding: 12px 25px; font-size: 18px; border-radius: 8px; cursor: pointer; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <button onclick="history.back()"><i class="fa-solid fa-arrow-left"></i></button>
+    <h1>Fracturas</h1>
+    <a href="index.html"><i class="fa-solid fa-house"></i></a>
+  </div>
+
+  <div class="contenido">
+    <h2>¿Qué es una fractura?</h2>
+    <p>Es la ruptura parcial o total de un hueso, generalmente por un traumatismo fuerte.</p>
+
+    <h2>¿Qué hacer?</h2>
+    <ol>
+      <li>No mover la zona afectada.</li>
+      <li>Inmovilizar con una férula si es posible.</li>
+      <li>No intentar alinear el hueso.</li>
+      <li>Acudir inmediatamente a un centro médico.</li>
+    </ol>
+
+    <h2>Video explicativo:</h2>
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+      <iframe src="https://www.youtube.com/embed/tbxcH_gsn2E" 
+              title="Cómo actuar ante una fractura - Primeros Auxilios"
+              frameborder="0" allowfullscreen 
+              style="position:absolute;top:0;left:0;width:100%;height:100%;">
+      </iframe>
+    </div>
+    <p>Aprende cómo actuar en caso de fracturas sin empeorar la lesión mientras esperas atención médica.</p>
+
+    <div class="completado-container">
+      ¿Terminaste esta sección?
+      <br>
+      <button onclick="marcarComoCompletado('fracturas')">✅ Marcar como completado</button>
+    </div>
+  </div>
+
+  <script>
+    function marcarComoCompletado(nombre) {
+      localStorage.setItem(nombre + '_completado', 'true');
+      alert('¡Sección "' + nombre + '" marcada como completada!');
+    }
+  </script>
+
+</body>
+</html>

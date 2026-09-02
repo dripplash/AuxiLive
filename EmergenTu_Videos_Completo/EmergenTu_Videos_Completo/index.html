@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>EmergenTú</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Selector de idioma -->
+  <div class="language-switcher">
+    <label for="lang">Idioma:</label>
+    <select id="lang" onchange="cambiarIdioma()">
+      <option value="es">Español</option>
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="de">Deutsch</option>
+    </select>
+  </div>
+
+  <!-- Título -->
+  <h1>App de Primeros Auxilios - EmergenTú</h1>
+
+  <!-- Buscador -->
+  <div class="search-container">
+    <input type="text" id="searchInicio" placeholder="Buscar sección..." onkeyup="buscarSeccion()">
+  </div>
+
+  <!-- Tarjetas -->
+  <div class="container">
+
+    <div class="card" onclick="location.href='guia.html'">
+      <h2>Guía Básica</h2>
+      <p>Aprende cómo actuar ante emergencias como RCP, quemaduras, fracturas, asfixia y más.</p>
+    </div>
+    
+
+    <div class="card" onclick="location.href='kit.html'">
+      <h2>Kit de Primeros Auxilios</h2>
+      <p>Descubre qué debe contener un botiquín básico, intermedio o avanzado.</p>
+    </div>
+
+    <div class="card" onclick="location.href='emergencias.html'">
+      <h2>Emergencias Cercanas</h2>
+      <p>Encuentra hospitales cercanos y llama a servicios de emergencia en Chile.</p>
+    </div>
+
+    <div class="card" onclick="location.href='progreso.html'">
+      <h2>Mi Progreso</h2>
+      <p>Revisa tu avance, logros obtenidos y descarga tu certificado. Agenda capacitaciones en tu comunidad.</p>
+    </div>
+
+    <div class="card" onclick="location.href='asistente.html'">
+      <h2>Asistente GPT</h2>
+      <p>Haz preguntas sobre primeros auxilios y obtén respuestas automáticas al instante.</p>
+    </div>
+
+    <div class="card" onclick="location.href='idioma.html'">
+      <h2>Idioma</h2>
+      <p>Elige el idioma que prefieras para navegar por la aplicación.</p>
+    </div>
+
+    <div class="card" onclick="location.href='agradecimientos.html'">
+      <h2>Agradecimientos</h2>
+      <p>Gracias por visitar EmergenTú. Esperamos que esta app te sea útil.</p>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    async function cambiarIdioma() {
+      const idioma = document.getElementById('lang').value;
+
+      if (idioma === 'es') {
+        location.reload();
+      } else {
+        const textos = [
+          'App de Primeros Auxilios - EmergenTú',
+          'Guía Básica',
+          'Aprende cómo actuar ante emergencias como RCP, quemaduras, fracturas, asfixia y más.',
+          'Kit de Primeros Auxilios',
+          'Descubre qué debe contener un botiquín básico, intermedio o avanzado.',
+          'Emergencias Cercanas',
+          'Encuentra hospitales cercanos y llama a servicios de emergencia en Chile.',
+          'Mi Progreso',
+          'Revisa tu avance, logros obtenidos y descarga tu certificado. Agenda capacitaciones en tu comunidad.',
+          'Asistente GPT',
+          'Haz preguntas sobre primeros auxilios y obtén respuestas automáticas al instante.',
+          'Idioma',
+          'Elige el idioma que prefieras para navegar por la aplicación.',
+          'Agradecimientos',
+          'Gracias por visitar EmergenTú. Esperamos que esta app te sea útil.'
+        ];
+
+        const traducciones = await Promise.all(textos.map(t =>
+          fetch("https://libretranslate.de/translate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              q: t,
+              source: "es",
+              target: idioma,
+              format: "text"
+            })
+          }).then(res => res.json()).then(data => data.translatedText)
+        ));
+
+        document.querySelector('h1').innerText = traducciones[0];
+        const cards = document.querySelectorAll('.card');
+        for (let i = 0; i < cards.length; i++) {
+          cards[i].innerHTML = `<h2>${traducciones[i * 2 + 1]}</h2><p>${traducciones[i * 2 + 2]}</p>`;
+        }
+      }
+    }
+
+    function buscarSeccion() {
+      const input = document.getElementById("searchInicio").value.toLowerCase();
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+        const texto = card.innerText.toLowerCase();
+        card.style.display = texto.includes(input) ? "flex" : "none";
+      });
+    }
+  </script>
+
+</body>
+</html>

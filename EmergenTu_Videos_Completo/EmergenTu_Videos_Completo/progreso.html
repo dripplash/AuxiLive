@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tu Progreso en EmergenTú</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      background-color: #c62828;
+      color: white;
+      padding: 20px 0;
+      margin: 0;
+    }
+    .progress-container {
+      width: 90%;
+      margin: 20px auto;
+      background-color: #ddd;
+      border-radius: 10px;
+    }
+    .progress-bar {
+      height: 30px;
+      background-color: #28a745;
+      border-radius: 10px;
+      text-align: center;
+      line-height: 30px;
+      color: white;
+      font-weight: bold;
+    }
+    .logros {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #f9f9f9;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .logros h2 {
+      color: #c62828;
+      margin-bottom: 15px;
+    }
+    .logro-item {
+      background-color: #fff;
+      padding: 10px;
+      margin: 10px 0;
+      border-left: 6px solid #c62828;
+      border-radius: 6px;
+      text-align: left;
+    }
+    .volver {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Tu Progreso en EmergenTú</h1>
+
+  <div class="progress-container">
+    <div id="progressBar" class="progress-bar">0%</div>
+  </div>
+
+  <div class="logros">
+    <h2>Logros Desbloqueados</h2>
+    <div id="listaLogros"></div>
+  </div>
+
+  <div class="volver">
+    <a href="index.html">🏠 Volver al inicio</a>
+  </div>
+
+  <script>
+    const secciones = ['rcp', 'quemaduras', 'hemorragias', 'fracturas', 'heimlich', 'desmayos', 'alergias'];
+
+    const logros = [
+      { id: 1, texto: '🎖️ Primer paso completado: ¡Bien hecho!' },
+      { id: 3, texto: '🥉 Emergencista básico: Completaste 3 secciones' },
+      { id: 5, texto: '🥈 Emergencista intermedio: 5 secciones listas' },
+      { id: 7, texto: '🏆 Maestro de emergencias: ¡Completaste todo!' }
+    ];
+
+    let completadas = 0;
+    secciones.forEach(sec => {
+      if (localStorage.getItem(sec + '_completado') === 'true') {
+        completadas++;
+      }
+    });
+
+    const porcentaje = Math.round((completadas / secciones.length) * 100);
+    const bar = document.getElementById("progressBar");
+    bar.style.width = porcentaje + "%";
+    bar.textContent = porcentaje + "%";
+
+    const listaLogros = document.getElementById("listaLogros");
+    logros.forEach(logro => {
+      if (completadas >= logro.id) {
+        const item = document.createElement("div");
+        item.className = "logro-item";
+        item.textContent = logro.texto;
+        listaLogros.appendChild(item);
+      }
+    });
+  </script>
+
+</body>
+</html>
+<button onclick="resetearProgreso()" style="margin-top: 30px; padding: 10px 20px; background-color: #888; color: white; border: none; border-radius: 8px;">
+  🔄 Reiniciar progreso
+</button>
+
+<script>
+  function resetearProgreso() {
+    const secciones = ['rcp', 'quemaduras', 'hemorragias', 'fracturas', 'heimlich', 'desmayos', 'alergias'];
+    secciones.forEach(sec => localStorage.removeItem(sec + '_completado'));
+    alert("¡Progreso reiniciado!");
+    location.reload();
+  }
+</script>
+
